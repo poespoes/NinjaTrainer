@@ -31,7 +31,7 @@ public class RestartManager : MonoBehaviour {
         if (player.restartStageTimer > 2 && main3 == true) {
             SceneManager.LoadScene("main3");
         }
-        if (player.restartStageTimer > 2 && main4 == true) {
+        if (player.restartGoalTimer > 2 && main4 == true) {
             SceneManager.LoadScene("main4");
         }
     }

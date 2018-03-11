@@ -15,6 +15,8 @@ public class Player : MonoBehaviour {
     public float restartStageTimer = 0;
     public float restartGoalTimer = 0;
     public SpriteRenderer subGoal;
+    public SpriteRenderer subGoal_b;
+    public SpriteRenderer subGoal_c;
 
     bool surfaced = false;
     bool underwater = false;
@@ -23,7 +25,8 @@ public class Player : MonoBehaviour {
     bool stopMoving = false;
     bool goalCheck = false;
     float moveTimer = 0;
-
+    float goal4Counter = 0;
+    bool goal4Check = false;
     
     // Use this for initialization
     void Start() {
@@ -37,16 +40,17 @@ public class Player : MonoBehaviour {
         }
 
         //Debug.Log(caughtTimer);
-        if (restartStageTimer >= 0.8) {
+        if (restartStageTimer >= 0.8f) {
             gameoverImage.sortingOrder = 20;
             //SceneManager.LoadScene("end1");
             Debug.Log("got caught!");
         }
-        if (restartGoalTimer >= 0.8) {
+        if (restartGoalTimer >= 0.8f) {
             restartGoalImage.sortingOrder = 21;
             //SceneManager.LoadScene("end1");
             Debug.Log("got caught!");
         }
+
         //BG red and restart
         if (caughtTimer >= youGotCaughtIn) {
             restartStageTimer += Time.deltaTime;
@@ -81,6 +85,9 @@ public class Player : MonoBehaviour {
         if (moveTimer >= movePerNSec) {
             canMove = true;
             moveTimer = 0;
+        }
+        if (goal4Counter == 3) {
+            goal4Check = true;
         }
     }
 
@@ -155,7 +162,6 @@ public class Player : MonoBehaviour {
             caughtTimer = 0;
             canMove = false;
             SceneManager.LoadScene("cutscene2");
-            //ADD STUFFS HERE!
         }
         if (underwater == false && collision.gameObject.tag == "Goal3") {
             goalCheck = true;
@@ -166,17 +172,17 @@ public class Player : MonoBehaviour {
             stopMoving = true;
             caughtTimer = 0;
             canMove = false;
-            SceneManager.LoadScene("end3");
+            SceneManager.LoadScene("cutscene3");
         }
         if (underwater == false && collision.gameObject.tag == "endGoal3" && goalCheck == false) {
             stopMoving = true;
             caughtTimer = 0;
             canMove = false;
             caughtCheck = true;
-            restartGoalTimer += Time.deltaTime;
+            restartStageTimer += Time.deltaTime;
         }
         if (collision.gameObject.tag == "endGoal3" && restartStageTimer >= 2) {
-            SceneManager.LoadScene("main3");
+            SceneManager.LoadScene("cutscene3");
         }
             if (underwater == false && collision.gameObject.tag == "GoalTutorial") {
             Debug.Log("REKT!");
@@ -187,12 +193,30 @@ public class Player : MonoBehaviour {
             //ADD STUFFS HERE!
         }
         if (underwater == false && collision.gameObject.tag == "Goal4") {
+            goal4Counter += 1;
+            subGoal.sortingOrder = -5;
+        }
+        if (underwater == false && collision.gameObject.tag == "Goal4b") {
+            goal4Counter += 1;
+            subGoal_b.sortingOrder = -5;
+        }
+        if (underwater == false && collision.gameObject.tag == "Goal4c") {
+            goal4Counter += 1;
+            subGoal_c.sortingOrder = -5;
+        }
+        if (underwater == false && collision.gameObject.tag == "endGoal4" && goal4Check == true) {
             Debug.Log("CLEAR!");
             stopMoving = true;
             caughtTimer = 0;
             canMove = false;
             SceneManager.LoadScene("end3");
-            //ADD STUFFS HERE!
+        }
+        if (underwater == false && collision.gameObject.tag == "endGoal4" && goal4Check == false) {
+            stopMoving = true;
+            caughtTimer = 0;
+            canMove = false;
+            caughtCheck = true;
+            restartGoalTimer += Time.deltaTime;
         }
     }
 }

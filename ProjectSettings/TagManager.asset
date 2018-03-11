@@ -13,6 +13,10 @@ TagManager:
   - Enemy3
   - Goal3
   - endGoal3
+  - endGoal4
+  - Goal4
+  - Goal4b
+  - Goal4c
   layers:
   - Default
   - TransparentFX
