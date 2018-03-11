@@ -1004,7 +1004,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 608746699}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1899167134}
@@ -1654,6 +1654,7 @@ GameObject:
   - component: {fileID: 1325149666}
   - component: {fileID: 1325149668}
   - component: {fileID: 1325149667}
+  - component: {fileID: 1325149669}
   m_Layer: 0
   m_Name: goal (3)
   m_TagString: Goal4b
@@ -1668,7 +1669,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1325149665}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.82, z: 0}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 395520417}
@@ -1743,6 +1744,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1325149669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1325149665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83667db8ba6743141ac812b9254202bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yPosition: -0.2
+  hasMovedCounter: 1
 --- !u!1 &1434721181
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,7 +2689,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2064967280}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.2, z: 0}
+  m_LocalPosition: {x: 0, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 395520417}
@@ -2761,5 +2775,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83667db8ba6743141ac812b9254202bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yPosition: 0.2
+  yPosition: -0.2
   hasMovedCounter: 1
